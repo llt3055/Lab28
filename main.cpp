@@ -119,10 +119,10 @@ int main() {
             }
 
             case 8: {
-            //  Milestone 5: for_each 
-            if (trip.empty()) {             
-                for_each(trip.begin(), trip.end()+1) {
-                    g.set_age(g.get_age());
+            // --- Milestone 5: for_each ---
+            if (!trip.empty()) {
+                for_each(trip.begin(), trip.end(), [](Goat &g) {
+                    g.set_age(g.get_age() + 1);
                 });
                 cout << "It's a celebration! All goats are now one year older.\n";
             } else {
