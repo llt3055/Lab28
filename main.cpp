@@ -163,24 +163,18 @@ int main() {
         }
 
         case 11: {
-            //  Milestone 8: min_element 
+            // --- Milestone 8: min_element ---
             if (!trip.empty()) {
-                auto it = min_element(trip.begin(), ) {
-                    return a.get_age()  
+                auto it = min_element(trip.begin(), trip.end(), [](const Goat& a, const Goat& b) {
+                    return a.get_age() < b.get_age();
                 });
 
                 cout << "The youngest goat is: " << it->get_name() 
-                     << it->get_age() << " years old, Color: " << it->get_color() << ")\n";
+                     << " (" << it->get_age() << " years old, Color: " << it->get_color() << ")\n";
             } else {
-                
+                cout << "The trip is empty.\n";
             }
             break;
-        }
-            default:
-                cout << "Invalid selection.\n";
-                break;
-            }
-            sel = main_menu();
         }
         
         
