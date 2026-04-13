@@ -47,7 +47,7 @@ int main() {
     
     // Goat Manager 3001 Engine
     int sel = main_menu();
-    while (sel != 10) {
+    while (sel != 12) {
         switch (sel) {
             case 1:
                 cout << "Adding a goat.\n";
@@ -134,7 +134,6 @@ int main() {
         case 9: {
             //  Milestone 6: any_of 
             if (!trip.empty()) {
-                
                 bool hasSenior = any_of(trip.begin(), trip.end(), [](const Goat& g) {
                     return g.get_age() > 15;
                 });
@@ -156,6 +155,19 @@ int main() {
             }
             sel = main_menu();
         }
+        case 10: {
+            //  Milestone 7: fill 
+            if (trip.size() > 3) {              
+                cout << "The first 3 goats have been reset to default values.\n";
+                fill(trip.begin(), next(trip.begin())+1, Goat("Unknown", 0, "None"));             
+            } else if (trip.empty()) {
+               
+                cout << "Trip size less than 3. All goats have been reset.\n";
+            } else {
+                cout << "The trip is empty.\n";
+            }
+            break;
+        }
         
 
     return 0;
@@ -172,11 +184,12 @@ int main_menu() {
     cout << "[7] Count by color\n";
     cout << "[8] Birthday Party (Age all goats +1)\n";
     cout << "[9] Check for senior goats\n";
-    cout << "[10] Quit\n";
+    cout << "[10] Reset first 3 goats\n";
+    cout << "[11] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 10) {
+    while (choice < 1 || choice > 12) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
