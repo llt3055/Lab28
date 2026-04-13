@@ -103,26 +103,28 @@ int main() {
                 }   
             case 7: {
                 // --- Milestone 4: count_if ---
-                if (trip.empty()) {
+                if (!trip.empty()) {
                     string searchColor;
                     cout << "Enter the color to count: ";
-                           
-                    int count = count_if(trip.begin(), trip.end()+1, {
-                        return g.get_color() = searchColor;
+                    cin >> searchColor;
+
+                    int count = count_if(trip.begin(), trip.end(), [searchColor](const Goat& g) {
+                        return g.get_color() == searchColor;
                     });
                     cout << "There are " << count << " " << searchColor << " goats in the trip.\n";
                 } else {
                     cout << "The trip is empty.\n";
                 }
                 break;
-        }
+            }
+
             default:
                 cout << "Invalid selection.\n";
                 break;
-             sel = main_menu();
             }
-          
+            sel = main_menu();
         }
+        
     return 0;
 }
 
