@@ -87,26 +87,26 @@ int main() {
                     cout << "The trip is empty, nothing to reverse.\n";
                 }
                 break;
-            }
-            case 6: {
-            //  Milestone 3: accumulate 
-            if (!trip.empty()) {
-                    double totalAge = accumulate(trip.begin(), trip.end(), 0.0, [](double sum, const Goat& g) { 
-                        return sum + g.get_age();              
-                });
-                    cout << "The average age of the trip is: " << fixed << setprecision(2)
-                         << (totalAge / trip.size()) << " years.\n";
-                } else {
-                        cout << "The trip is empty, cannot calculate average age.\n";
                 }
-                break;
-            }
-        default:
+                case 6: {
+                //  Milestone 3: accumulate 
+                if (!trip.empty()) {
+                        double totalAge = accumulate(trip.begin(), trip.end(), 0.0, [](double sum, const Goat& g) { 
+                            return sum + g.get_age();              
+                    });
+                        cout << "The average age of the trip is: " << fixed << setprecision(2)
+                            << (totalAge / trip.size()) << " years.\n";
+                    } else {
+                            cout << "The trip is empty, cannot calculate average age.\n";
+                    }
+                    break;
+                }   
+            default:
                 cout << "Invalid selection.\n";
                 break;
+            }
+            sel = main_menu();
         }
-        sel = main_menu();
-    }
     
 
     return 0;
@@ -119,11 +119,13 @@ int main_menu() {
     cout << "[3] List goats\n";
     cout << "[4] Find a goat\n";
     cout << "[5] Reverse trip\n";
-    cout << "[6] Quit\n";
+    cout << "[6] Average age\n";
+    cout << "[7] Count by color\n";
+    cout << "[8] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 7) {
+    while (choice < 1 || choice > 8) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
