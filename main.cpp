@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <numeric>
 #include <list>
 #include "Goat.h"
 using namespace std;
@@ -46,7 +47,7 @@ int main() {
     
     // Goat Manager 3001 Engine
     int sel = main_menu();
-    while (sel != 6) {
+    while (sel != 7) {
         switch (sel) {
             case 1:
                 cout << "Adding a goat.\n";
@@ -89,18 +90,17 @@ int main() {
             }
             case 6: {
             //  Milestone 3: accumulate 
-            if (trip.empty()) {
-                    double sum = accumulate(trip.begin(), trip.end(), 0.0, [](double current_sum, const Goat& g) {               
+            if (!trip.empty()) {
+                    double totalAge = accumulate(trip.begin(), trip.end(), 0.0, [](double sum, const Goat& g) { 
+                        return sum + g.get_age();              
                 });
-
-                double avg = sum / trip.size();
-                cout << "The average age of the " << trip.size() << " goats is: " 
-                     << fixed  avg << " years.";
-            } else {
-                return current_sum + g.get_age();
+                    cout << "The average age of the trip is: " << fixed << setprecision(2)
+                         << (totalAge / trip.size()) << " years.\n";
+                } else {
+                        cout << "The trip is empty, cannot calculate average age.\n";
+                }
+                break;
             }
-            break;
-        }
         default:
                 cout << "Invalid selection.\n";
                 break;
@@ -123,7 +123,7 @@ int main_menu() {
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 6) {
+    while (choice < 1 || choice > 7) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
