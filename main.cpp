@@ -148,26 +148,26 @@ int main() {
             }
             break;
         }
-
-            default:
-                cout << "Invalid selection.\n";
-                break;
-            }
-            sel = main_menu();
-        }
         case 10: {
             //  Milestone 7: fill 
-            if (trip.size() > 3) {              
-                cout << "The first 3 goats have been reset to default values.\n";
-                fill(trip.begin(), next(trip.begin())+1, Goat("Unknown", 0, "None"));             
+            if (trip.size() >= 3) {            
+                fill(trip.begin(), next(trip.begin(), 3), Goat("Unknown", 0, "None"));
+                cout << "The first 3 goats have been reset to default values.\n";        
             } else if (trip.empty()) {
-               
+                fill(trip.begin(), trip.end(), Goat("Unknown", 0, "None"));
                 cout << "Trip size less than 3. All goats have been reset.\n";
             } else {
                 cout << "The trip is empty.\n";
             }
             break;
         }
+            default:
+                cout << "Invalid selection.\n";
+                break;
+            }
+            sel = main_menu();
+        }
+        
         
 
     return 0;
