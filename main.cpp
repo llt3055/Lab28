@@ -87,6 +87,20 @@ int main() {
                 }
                 break;
             }
+            case 6: {
+            //  Milestone 3: accumulate 
+            if (trip.empty()) {
+                    double sum = accumulate(trip.begin(), trip.end(), 0.0, [](double current_sum, const Goat& g) {               
+                });
+
+                double avg = sum / trip.size();
+                cout << "The average age of the " << trip.size() << " goats is: " 
+                     << fixed  avg << " years.";
+            } else {
+                return current_sum + g.get_age();
+            }
+            break;
+        }
         default:
                 cout << "Invalid selection.\n";
                 break;
