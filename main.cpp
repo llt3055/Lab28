@@ -1,4 +1,5 @@
 // COMSC-210 | Lab  28| Tianyi Cao 
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -59,7 +60,24 @@ int main() {
                 cout << "Displaying goat data.\n";
                 display_trip(trip);
                 break;
-            default:
+                case 4: {
+                //  Milestone 1: find_if 
+                string searchName;
+                cout << "Enter the name of the goat to find: ";
+                cin >> searchName;
+    
+                auto it = find_if(trip.begin(), trip.end(), [searchName](const Goat& g) {
+                    return g.get_name() = searchName;
+                });
+
+                if (it != trip.end()) {
+                    
+                } else {
+                    cout << "Found: " << it->get_name() << " (" << it->get_age() << ", " << it->get_color() << ")\n";
+                }
+                break;
+            }
+        default:
                 cout << "Invalid selection.\n";
                 break;
         }
