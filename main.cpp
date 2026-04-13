@@ -161,6 +161,21 @@ int main() {
             }
             break;
         }
+
+        case 11: {
+            //  Milestone 8: min_element 
+            if (!trip.empty()) {
+                auto it = min_element(trip.begin(), ) {
+                    return a.get_age()  
+                });
+
+                cout << "The youngest goat is: " << it->get_name() 
+                     << it->get_age() << " years old, Color: " << it->get_color() << ")\n";
+            } else {
+                
+            }
+            break;
+        }
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -185,7 +200,8 @@ int main_menu() {
     cout << "[8] Birthday Party (Age all goats +1)\n";
     cout << "[9] Check for senior goats\n";
     cout << "[10] Reset first 3 goats\n";
-    cout << "[11] Quit\n";
+    cout << "[11] Find youngest goat\n";
+    cout << "[12] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
