@@ -47,7 +47,7 @@ int main() {
     
     // Goat Manager 3001 Engine
     int sel = main_menu();
-    while (sel != 8) {
+    while (sel != 9) {
         switch (sel) {
             case 1:
                 cout << "Adding a goat.\n";
@@ -102,7 +102,7 @@ int main() {
                     break;
                 }   
             case 7: {
-                // --- Milestone 4: count_if ---
+                // Milestone 4: count_if 
                 if (!trip.empty()) {
                     string searchColor;
                     cout << "Enter the color to count: ";
@@ -118,6 +118,19 @@ int main() {
                 break;
             }
 
+            case 8: {
+            //  Milestone 5: for_each 
+            if (trip.empty()) {             
+                for_each(trip.begin(), trip.end()+1) {
+                    g.set_age(g.get_age());
+                });
+                cout << "It's a celebration! All goats are now one year older.\n";
+            } else {
+                cout << "The trip is empty, no one to celebrate with.\n";
+            }
+            break;
+        }
+
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -125,6 +138,7 @@ int main() {
             sel = main_menu();
         }
         
+
     return 0;
 }
 
@@ -137,11 +151,12 @@ int main_menu() {
     cout << "[5] Reverse trip\n";
     cout << "[6] Average age\n";
     cout << "[7] Count by color\n";
-    cout << "[8] Quit\n";
+    cout << "[8] Birthday Party (Age all goats +1)\n";
+    cout << "[9] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 8) {
+    while (choice < 1 || choice > 9) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
