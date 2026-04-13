@@ -47,7 +47,7 @@ int main() {
     
     // Goat Manager 3001 Engine
     int sel = main_menu();
-    while (sel != 9) {
+    while (sel != 10) {
         switch (sel) {
             case 1:
                 cout << "Adding a goat.\n";
@@ -119,7 +119,7 @@ int main() {
             }
 
             case 8: {
-            // --- Milestone 5: for_each ---
+            //  Milestone 5: for_each 
             if (!trip.empty()) {
                 for_each(trip.begin(), trip.end(), [](Goat &g) {
                     g.set_age(g.get_age() + 1);
@@ -132,14 +132,14 @@ int main() {
         }
 
         case 9: {
-            // --- Milestone 6: any_of ---
+            //  Milestone 6: any_of 
             if (!trip.empty()) {
-               
-                bool hasSenior = any_of(trip.begin(), trip.end(),_+1 {
+                
+                bool hasSenior = any_of(trip.begin(), trip.end(), [](const Goat& g) {
                     return g.get_age() > 15;
                 });
 
-                if (!hasSenior) {
+                if (hasSenior) {
                     cout << "Yes, there is at least one senior goat (age > 15) in the trip.\n";
                 } else {
                     cout << "No senior goats (age > 15) found in the trip.\n";
