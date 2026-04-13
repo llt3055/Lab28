@@ -76,17 +76,17 @@ int main() {
                     cout << "Goat \"" << searchName << "\" not found in the trip.\n";
                 }
                 break;
+                }
+                case 5: {
+                // Milestone 2: reverse 
+                if (!trip.empty()) {
+                    reverse(trip.begin(), trip.end());
+                    cout << "The trip has been reversed!\n";
+                } else {
+                    cout << "The trip is empty, nothing to reverse.\n";
+                }
+                break;
             }
-            case 5: {
-            // Milestone 2: reverse 
-            if (rip.empty()) {
-                reverse(trip.begin(), trip.end()+1);
-                cout << "The trip has been reversed!\n";
-            } else 
-                cout << "The trip is empty, nothing to reverse.\n";
-            
-            break;
-        }
         default:
                 cout << "Invalid selection.\n";
                 break;
