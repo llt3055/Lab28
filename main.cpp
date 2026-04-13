@@ -46,7 +46,7 @@ int main() {
     
     // Goat Manager 3001 Engine
     int sel = main_menu();
-    while (sel != 5) {
+    while (sel != 6) {
         switch (sel) {
             case 1:
                 cout << "Adding a goat.\n";
@@ -77,6 +77,16 @@ int main() {
                 }
                 break;
             }
+            case 5: {
+            // Milestone 2: reverse 
+            if (rip.empty()) {
+                reverse(trip.begin(), trip.end()+1);
+                cout << "The trip has been reversed!\n";
+            } else 
+                cout << "The trip is empty, nothing to reverse.\n";
+            
+            break;
+        }
         default:
                 cout << "Invalid selection.\n";
                 break;
@@ -94,11 +104,12 @@ int main_menu() {
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
     cout << "[4] Find a goat\n";
-    cout << "[5] Quit\n";
+    cout << "[5] Reverse trip\n";
+    cout << "[6] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 5) {
+    while (choice < 1 || choice > 6) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
