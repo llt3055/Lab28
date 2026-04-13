@@ -47,7 +47,7 @@ int main() {
     
     // Goat Manager 3001 Engine
     int sel = main_menu();
-    while (sel != 7) {
+    while (sel != 8) {
         switch (sel) {
             case 1:
                 cout << "Adding a goat.\n";
@@ -61,7 +61,7 @@ int main() {
                 cout << "Displaying goat data.\n";
                 display_trip(trip);
                 break;
-                case 4: {
+            case 4: {
                     //  Milestone 1: find_if 
                     string searchName;
                     cout << "Enter the name of the goat to find: ";
@@ -78,7 +78,7 @@ int main() {
                 }
                 break;
                 }
-                case 5: {
+            case 5: {
                 // Milestone 2: reverse 
                 if (!trip.empty()) {
                     reverse(trip.begin(), trip.end());
@@ -88,7 +88,7 @@ int main() {
                 }
                 break;
                 }
-                case 6: {
+            case 6: {
                 //  Milestone 3: accumulate 
                 if (!trip.empty()) {
                         double totalAge = accumulate(trip.begin(), trip.end(), 0.0, [](double sum, const Goat& g) { 
@@ -101,14 +101,28 @@ int main() {
                     }
                     break;
                 }   
+            case 7: {
+                // --- Milestone 4: count_if ---
+                if (trip.empty()) {
+                    string searchColor;
+                    cout << "Enter the color to count: ";
+                           
+                    int count = count_if(trip.begin(), trip.end()+1, {
+                        return g.get_color() = searchColor;
+                    });
+                    cout << "There are " << count << " " << searchColor << " goats in the trip.\n";
+                } else {
+                    cout << "The trip is empty.\n";
+                }
+                break;
+        }
             default:
                 cout << "Invalid selection.\n";
                 break;
+             sel = main_menu();
             }
-            sel = main_menu();
+          
         }
-    
-
     return 0;
 }
 
