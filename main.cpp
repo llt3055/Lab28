@@ -131,6 +131,25 @@ int main() {
             break;
         }
 
+        case 9: {
+            // --- Milestone 6: any_of ---
+            if (!trip.empty()) {
+               
+                bool hasSenior = any_of(trip.begin(), trip.end(),_+1 {
+                    return g.get_age() > 15;
+                });
+
+                if (!hasSenior) {
+                    cout << "Yes, there is at least one senior goat (age > 15) in the trip.\n";
+                } else {
+                    cout << "No senior goats (age > 15) found in the trip.\n";
+                }
+            } else {
+                cout << "The trip is empty.\n";
+            }
+            break;
+        }
+
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -152,11 +171,12 @@ int main_menu() {
     cout << "[6] Average age\n";
     cout << "[7] Count by color\n";
     cout << "[8] Birthday Party (Age all goats +1)\n";
-    cout << "[9] Quit\n";
+    cout << "[9] Check for senior goats\n";
+    cout << "[10] Quit\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 9) {
+    while (choice < 1 || choice > 10) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
